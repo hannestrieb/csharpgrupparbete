@@ -393,6 +393,16 @@
         "build": {
           "build/net8.0/xunit.runner.visualstudio.props": {}
         }
+      },
+      "PersonnummerApp/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/PersonnummerApp.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PersonnummerApp.dll": {}
+        }
       }
     }
   },
@@ -903,34 +913,40 @@
         "xunit.runner.visualstudio.3.1.4.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
+    },
+    "PersonnummerApp/1.0.0": {
+      "type": "project",
+      "path": "../PersonnummerApp/PersonnummerApp.csproj",
+      "msbuildProject": "../PersonnummerApp/PersonnummerApp.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
       "Microsoft.NET.Test.Sdk >= 17.14.1",
+      "PersonnummerApp >= 1.0.0",
       "coverlet.collector >= 6.0.4",
       "xunit >= 2.9.3",
       "xunit.runner.visualstudio >= 3.1.4"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\phili\\.nuget\\packages\\": {},
+    "C:\\Users\\LENOVO\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\phili\\Gitworks\\Grupparbete_Personnummer\\csharpgrupparbete\\PersonnummerApp.Tests\\PersonnummerApp.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\LENOVO\\source\\repos\\KYH DevSecOps\\CI-CD\\Grupparbete\\csharpgrupparbete\\PersonnummerApp.Tests\\PersonnummerApp.Tests.csproj",
       "projectName": "PersonnummerApp.Tests",
-      "projectPath": "C:\\Users\\phili\\Gitworks\\Grupparbete_Personnummer\\csharpgrupparbete\\PersonnummerApp.Tests\\PersonnummerApp.Tests.csproj",
-      "packagesPath": "C:\\Users\\phili\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\phili\\Gitworks\\Grupparbete_Personnummer\\csharpgrupparbete\\PersonnummerApp.Tests\\obj\\",
+      "projectPath": "C:\\Users\\LENOVO\\source\\repos\\KYH DevSecOps\\CI-CD\\Grupparbete\\csharpgrupparbete\\PersonnummerApp.Tests\\PersonnummerApp.Tests.csproj",
+      "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\LENOVO\\source\\repos\\KYH DevSecOps\\CI-CD\\Grupparbete\\csharpgrupparbete\\PersonnummerApp.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\phili\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -944,7 +960,11 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\LENOVO\\source\\repos\\KYH DevSecOps\\CI-CD\\Grupparbete\\csharpgrupparbete\\PersonnummerApp\\PersonnummerApp.csproj": {
+              "projectPath": "C:\\Users\\LENOVO\\source\\repos\\KYH DevSecOps\\CI-CD\\Grupparbete\\csharpgrupparbete\\PersonnummerApp\\PersonnummerApp.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
