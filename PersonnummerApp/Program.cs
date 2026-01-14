@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.Globalization;
 using System.Linq;
 class Program
 {
@@ -27,6 +28,13 @@ class Program
                     Console.WriteLine("Programmet avslutas...");
                     running = false;
                     break;
+
+                default:
+                    Console.Clear();
+                    Console.WriteLine("Felaktig input!");
+                    Console.WriteLine("\n\nTryck på valrfri knapp för att återgå till menyn.");
+                    Console.ReadKey(true);
+                    break;
             }
         }
     }
@@ -34,7 +42,7 @@ class Program
     static void RunProgram()
     {
         Console.WriteLine("Skriv in ditt personnummer (ÅÅMMDD-XXXX eller ÅÅMMDDXXXX):");
-        string personnummer = Console.ReadLine();
+        string personnummer = Console.ReadLine() ?? ""; //null check
 
         if (!PersonnummerValidation(personnummer))
         {
@@ -69,6 +77,52 @@ class Program
             return false;
         }
 
+        //Check så att datumet är i rätt format, dvs yyMMdd
+        string dateOfBirth = personnummer.Substring(0, 6);
+        if (!DateTime.TryParseExact(
+            dateOfBirth, "yyMMdd",
+            CultureInfo.InvariantCulture,
+            DateTimeStyles.None, out _
+            ))
+        {
+            Console.WriteLine("Personnumrets datum är ogiltigt!");
+        }
+
+        if (!LuhnValidation(personnummer))
+        {
+            Console.WriteLine("Personnumret har en ogiltig kontrollsiffra.");
+            return false;
+        }
+
         return true;
+    }
+
+    //bool metod för Luhn algoritm
+    static bool LuhnValidation(string personnummer)
+    {
+        int sum = 0; //Kommer innehålla totala Luhn-summan
+
+        //Går igenom dom första 9 (index 0-8) sifforna eftersom kontrollsiffran är den sista (index 9)
+        for (int i = 0; i < 9; i++)
+        {
+            int digit = int.Parse(personnummer[i].ToString()); //Konverterar char till int
+
+            if (i % 2 == 0) //Varannan siffra ska multipliceras med 2
+            {
+                digit *= 2;
+                if (digit > 9)
+                {
+                    digit -= 9;
+                }
+            }
+
+            sum += digit; //Lägger till siffran i summan
+        }
+
+        int moduloResult = sum % 10;
+        int calcControlDigit = (10 - moduloResult) % 10; //Räknar ut kontrollsiffran
+        int realControlDigit = int.Parse(personnummer[9].ToString()); //Konverterar kontroll siffra från char till int
+
+        return calcControlDigit == realControlDigit;
     }
 }
