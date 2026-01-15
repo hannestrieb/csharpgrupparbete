@@ -1,4 +1,19 @@
+# Systemfiler
 .DS_Store
-/bin
-/obj
-/.vs
+Thumbs.db
+
+# Visual Studio & VS Code 
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Byggfiler
+**/bin/
+**/obj/
+
+# Testresultat
+**/TestResults/
+
+# Känsliga filer 
+.env
