@@ -28,8 +28,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          # OBS: Jag ändrade till 'csharpgrupparbete' för att matcha din DockerHub-bild
-          images: projectsbyph/csharpgrupparbete
+          images: ${{ secrets.DOCKERHUB_USERNAME }}/csharpgrupparbete
           tags: |
             type=raw,value=latest
             type=ref,event=tag

@@ -6,8 +6,8 @@ on:
 
 jobs:
   docker:
-    runs-on: ubuntu-latest   # Fixat: Tog bort extra 'n'
+    runs-on: ubuntu-latest   
     steps:
-      - uses: actions/checkout@v4  # Fixat: Lade till mellanslag och 's' i actions
+      - uses: actions/checkout@v4  
       - run: echo "Docker workflow placeholder"
         
