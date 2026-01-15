@@ -1,0 +1,15 @@
+
+name: Docker
+
+on:
+  push:
+    branches: [ "main" ]
+
+
+jobs:
+    docker:
+        runs-on: unbuntu-latest
+        steps:
+            - uses:action/checkout@v4
+            - run: echo "Docker workflow placeholder"
+        
