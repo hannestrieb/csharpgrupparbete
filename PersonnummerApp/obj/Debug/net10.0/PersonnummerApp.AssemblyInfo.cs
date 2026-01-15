@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PersonnummerApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ec7140be2ea49fabe89ec1b7db44999f10ef0ae0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+986f060c69ba8f6fde54be5e93da19d0f3ca3066")]
 [assembly: System.Reflection.AssemblyProductAttribute("PersonnummerApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PersonnummerApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
