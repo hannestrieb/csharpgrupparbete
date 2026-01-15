@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 using System.Linq;
-class Program
+public class Program
 {
     //Gör allt i program.cs pga göra det så enkelt som möjligt
     static void Main(string[] args)
