@@ -1,15 +1,13 @@
-
 name: Docker
 
 on:
   push:
     branches: [ "main" ]
 
-
 jobs:
-    docker:
-        runs-on: unbuntu-latest
-        steps:
-            - uses:action/checkout@v4
-            - run: echo "Docker workflow placeholder"
+  docker:
+    runs-on: ubuntu-latest   # Fixat: Tog bort extra 'n'
+    steps:
+      - uses: actions/checkout@v4  # Fixat: Lade till mellanslag och 's' i actions
+      - run: echo "Docker workflow placeholder"
         
