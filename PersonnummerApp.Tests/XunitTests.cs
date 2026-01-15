@@ -4,6 +4,7 @@ namespace PersonnummerApp.Tests
 {
     public class XunitTests
     {
+        // Först 5 tester med olika ogilitga personnummer
         [Fact]
         public void PersonnummerValidation_InputIsTooLong_ReturnsFalse()
         {
@@ -47,17 +48,14 @@ namespace PersonnummerApp.Tests
         }
 
         [Fact]
-        public void PersonnummerValidation_InputIsValidPersonnummer_ReturnsTrue()
+        public void PersonnummerValidation_DateIsInvalid_ReturnsFalse()
         {
             // given
-            string input = "900101-1239";
-                        //  212121-212                  uträkning från wikipedia
-                        // 1+8+0+0+1+0+1+2+2+6=21
-                        // (10 - (21 % 10)) % 10 = 9
-            bool expected = true;
+            string input = "999999-1234";    // datumet är ogiltigt
+            bool expected = false;
 
             // when
-            bool result = Program.IsValidPersonnummer(input); 
+            bool result = Program.PersonnummerValidation(input);
 
             // then
             Assert.Equal(expected, result);
@@ -67,7 +65,7 @@ namespace PersonnummerApp.Tests
         public void PersonnummerValidation_InputIsInvalidPersonnummer_ReturnsFalse()
         {
             // given
-            string input = "900101-1234";
+            string input = "900101-1234";       // kontrollsiffran 4 är ogiltig enligt uträkning (wikipedia)
             bool expected = false;
 
             // when
@@ -77,6 +75,19 @@ namespace PersonnummerApp.Tests
             Assert.Equal(expected, result);
         }
 
-        // Kan fylla på med tester om vi lägger till fler metoder eller krav
+        // Sist 1 test med ett giltigt personnummer
+        [Fact]
+        public void PersonnummerValidation_InputIsValidPersonnummer_ReturnsTrue()
+        {
+            // given
+            string input = "900101-1239";       // kontrollsiffran 9 är korrekt enligt uträkning (wikipedia)
+            bool expected = true;
+
+            // when
+            bool result = Program.IsValidPersonnummer(input); 
+
+            // then
+            Assert.Equal(expected, result);
+        }
     }
 }
