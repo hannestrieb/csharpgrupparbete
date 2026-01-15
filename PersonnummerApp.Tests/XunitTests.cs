@@ -69,7 +69,7 @@ namespace PersonnummerApp.Tests
             bool expected = false;
 
             // when
-            bool result = Program.IsValidPersonnummer(input); 
+            bool result = Program.PersonnummerValidation(input);
 
             // then
             Assert.Equal(expected, result);
@@ -84,7 +84,7 @@ namespace PersonnummerApp.Tests
             bool expected = true;
 
             // when
-            bool result = Program.IsValidPersonnummer(input); 
+            bool result = Program.PersonnummerValidation(input);
 
             // then
             Assert.Equal(expected, result);

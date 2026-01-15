@@ -57,7 +57,7 @@ public class Program
     }
 
     //Bool metod för att kolla så personnummret uppfyller vissa krav
-    static bool PersonnummerValidation(string personnummer)
+    public static bool PersonnummerValidation(string personnummer)
     {
         //Tar bort eventuella bindestreck
         personnummer = personnummer.Replace("-", "");
