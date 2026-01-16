@@ -1,70 +1,68 @@
-# Grupparbete: C# Konsolapplikation och Docker Container för Kontroll av Svenskt PersonnummerThank you.
-Detta är ett C#-projekt för att validera och hantera personnummer på ett säkert sätt. Vi har byggt ett konsolprogram i C# som kollar
-om svenska personnummer är giltiga enligt de regler som gäller för format och kontrollsiffror. Projektet är containeriserat med Docker 
-för att underlätta distribution och körning i olika miljöer. Det har varit lärorikt att få arbeta tillsammans i grupp och 
-testa på hur man jobbar ihop i Git samt hur man använder Docker för att skapa en isolerad körmiljö.
+# Grupparbete: C# Konsolapplikation och Docker Container fÃ¶r Kontroll av Svenskt Personnummer.
+Detta Ã¤r ett C# projekt fÃ¶r att validera och hantera personnummer pÃ¥ ett sÃ¤kert sÃ¤tt. Vi har byggt ett konsolprogram i C# som kontrollerar
+om svenska personnummer Ã¤r giltiga enligt de format och kontrollsiffra (Luhn algoritmen). Genom att anvÃ¤nda Github Actions och Docker har vi skapat ett 
+helautomatiskt flÃ¶de frÃ¥n kod till fÃ¤rdig produkt.  
+
+## Snabbstart
+Man behÃ¶ver inte installera .NET eller ladda ner koden fÃ¶r att testa programmet. KÃ¶r bara detta i din terminal.
+
+```bash
+docker run --rm -it projectsbyph/csharpgrupparbete
+
+```
+Programmet hÃ¤mtas automatiskt som en fÃ¤rdig image frÃ¥n Docker Hub och startas direkt i terminalen.
+
+## Automatisering och CI/CD
+FÃ¶r att sÃ¤kerstÃ¤lla hÃ¶g kvalitet anvÃ¤nder vi oss av fÃ¶ljande flÃ¶de:
+
+* GitHub Actions: Varje gÃ¥ng vi skickar upp kod kÃ¶rs vÃ¥ra tester automatiskt, man kan se historiken av kÃ¶rningar i GitHub Actions fliken i repot.
+
+* Docker Hub: Efter godkÃ¤nda tester byggs en image som skickas till Docker Hub, dÃ¤r den lagras och gÃ¶rs tillgÃ¤nglig fÃ¶r nedladdning.
 
 ## Om personnummer & hur konsolapplikationen fungerar
-I Sverige har varje person ett unikt personnummer som börjarr när man är född, detta används för identifiering i olika sammanhang.
-Man kan skriva personnummer med 10 eller 12 siffror ( t.ex.ÅÅMMDD-XXXX eller ÅÅÅÅMMDD-XXXX). Vår applikation tar emot ett personnummer som indata och
-kontrollerar om det är giltigt genom att verifiera formatet och kontrollsiffran med Luhn algoritmen. Om personnumret är giltigt kommer applikationen 
-att bekräfta detta, annars kommer den att indikera att personnumret är ogiltigt. 
-Regfler för att numret ska vara rätt är:
+I Sverige har varje person ett unikt personnummer som bÃ¶rjar nÃ¤r man Ã¤r fÃ¶dd, detta anvÃ¤nds fÃ¶r identifiering i olika sammanhang.
+Man kan skriva personnummer med 10 eller 12 siffror ( t.ex.Ã…Ã…MMDD-XXXX eller Ã…Ã…Ã…Ã…MMDD-XXXX). VÃ¥r applikation tar emot ett personnummer som indata och
+kontrollerar om det Ã¤r giltigt genom att verifiera formatet och kontrollsiffran med Luhn algoritmen. Om personnumret Ã¤r giltigt kommer applikationen 
+att bekrÃ¤fta detta, annars kommer den att indikera att personnumret Ã¤r ogiltigt. 
+Regler fÃ¶r validering av personnummer:
 
-* Personnumret måste bestå av exakt 10 eller 12 siffror
-* Månaden måste alltid vara mellan 01 och 12
-* Dagen måste vara mellan 01 och 31 beroende på månaden
-* Den sista siffran är en kontrollsiffra som valideras med Luhn algoritmen
-
-Konsolapplikationen kontrollen i olika steg. Till en början så kollar koden ifall man har skrivit rätt antal
-siffror, sedan kontrollerar den ifall datumet och månaden är giltig. Slutligen gör den en matematisk uträkning med Luhn algoritmen
+* LÃ¤ngd: MÃ¥ste bestÃ¥ av exakt 10 eller 12 siffror
+* Datuom: Giltig mÃ¥nad (01-12) och dag (01-31 beroende pÃ¥ mÃ¥nad).  
+* Kontrollsiffra: Den sista siffran berÃ¤knas och valideras med Luhn algoritmen.
 
 ### Gruppmedlemmar och roller
-Baserat på vårt samarbete i Discord har vi fördelat ansvaret enligt följande:
-* Hannes: Ansvarig för huvudlogiken i Program.cs och valideringsmetoder (t.ex. kontroll av månader 01–12).
-* Hannah: Ansvarig för enhetstester i projektet PersonnummerApp.Tests med hjälp av xUnit.
-* Philip: Ansvarig för Docker konfiguration och miljöhantering.
-* Sebastian: Ansvarig för CI/CD automatisering.
-* Hiba: Ansvarig för dokumentation och projektets README.
+Vi har fÃ¶rdelat ansvaret enligt fÃ¶ljande:
+* Hannes: Ansvarig fÃ¶r huvudlogiken i Program.cs och valideringsmetoder (t.ex. kontroll av mÃ¥nader 01â€“12).
+* Hannah: Ansvarig fÃ¶r enhetstester i projektet PersonnummerApp.Tests (xUnit).
+* Philip: Ansvarig fÃ¶r Docker konfiguration och miljÃ¶hantering.
+* Sebastian: Ansvarig fÃ¶r CI/CD automatisering.
+* Hiba: Ansvarig fÃ¶r dokumentation och projektets README.
 
-## Teknisk Stack
-För att bygga applikation har vi använt följande tekniker:
-* Språk: C# som körs på .NET 10
-* Testning: xUnit för automatisk enhetstestning
-* Containerisering: Docker flr att skapa en isolerad körmiljö
-* Automatisering: GitHub Actions för automatiserad bygg och testprocess
+## KÃ¶ra lokalt 
+FÃ¶rutsÃ¤ttningar fÃ¶r att kÃ¶ra projektet lokalt:
+* .NET 10 SDK installerat pÃ¥ din maskin
+* Docker installerat (valfritt,fÃ¶r att kÃ¶ra via container)
 
-## Kom igång
+## Instruktioner
+1. Klona repot frÃ¥n GitHub och navigera till projektmappen i terminalen.
+ ```bash
+ git clone https://github.com/hannestrieb/csharpgrupparbete.git
+ cd csharpgrupparbete
+ ```
 
-### Förutsättningar
-För att kunna köra projektet lokalt på din maskin behöver du ha .NET 10 SDK installerat. 
-
-### Köra applikationen lokalt
-För att starta programmet, kör följande kommando i terminalen :
-
+2. Bygg och kÃ¶r applikationen.
 ```bash
-dotnet run --project PersonnummerApp
+	dotnet run --project PersonnummerApp
 ```
-### Köra testerna
-För att vi ska vara säkra på att personnumren valideras på ett korrekt sätt har vi skapat automatiserade 
-enhetstester med xUnit. Dessa tester kontrollerar logiken automatiskt så att vi enklare uppmärksammar eventuella fel. 
-
-För att köra testerna, använd följande kommando i terminalen:
-
-```bash 
-dotnet test PersonnummerApp.Tests
-```
-### Användning av Docker
-Vi har också gjort det möjligt att köra applikationen med Docker, på så vis fungerar applikationen likadant oavsett vilken miljö den körs i.
-
-1. 1. Bygg Docker imagen med följande kommando i terminalen:
+3. KÃ¶r enhetstesterna fÃ¶r att verifiera valideringslogiken.
 ```bash
-docker build -t personnummerapp .
-```
-2. Kör applikationen i terminalen med följande kommando:
-
-```bash 
-docker run -it personnummerapp
+	dotnet test PersonnummerApp.Tests
 ```
 
-Detta startar applikationen i en interaktiv terminal där du kan mata in personnummer för validering.
+
+### Bygga egen Docker image lokalt
+FÃ¶r att bygga och kÃ¶ra applikationen i en Docker container lokalt, anvÃ¤nd fÃ¶ljnade kommandon.
+```bash
+	docker build -t personnummerapp .
+	docker run -it personnummerapp
+```
